@@ -10,7 +10,14 @@ import { ItemRedirectDashboard } from './models/item-redirect-dashboard.model';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [NgForOf, RouterLink, MatCardModule, MatIconModule, MatButtonModule, MatDividerModule],
+  imports: [
+    NgForOf,
+    RouterLink,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule,
+    MatDividerModule
+  ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })
@@ -19,6 +26,7 @@ export class DashboardComponent {
   itensRedirect: ItemRedirectDashboard[] = [
     { rota: '/contatos', texto: 'Contatos', icone: 'people' },
     { rota: '/compromissos', texto: 'Compromissos', icone: 'event' },
+    { rota: '/categorias', texto: 'Categorias', icone: 'bookmarks' },
     { rota: '/despesas', texto: 'Despesas', icone: 'currency_exchange' },
     { rota: '/tarefas', texto: 'Tarefas', icone: 'task_alt' },
   ];
