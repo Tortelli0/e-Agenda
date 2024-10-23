@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, delay, map, Observable, throwError } from 'rxjs';
-import { ListarContatoViewModel } from '../models/contato.model';
+import { ContatoInseridoViewModel, InserirContatoViewModel, ListarContatoViewModel } from '../models/contato.model';
 import { LocalStorageService } from '../../../core/auth/services/local-storage.service';
 import { environment } from '../../../../environments/environment';
 
@@ -10,13 +10,19 @@ import { environment } from '../../../../environments/environment';
 })
 
 export class ContatoService {
+
   private readonly url = `${environment.apiUrl}/contatos`;
 
   constructor(private http: HttpClient, private localStorageService: LocalStorageService ) { }
 
+  inserir(inserirContatoVm: InserirContatoViewModel): Observable<ContatoInseridoViewModel> {
+    return this.http.post<ContatoInseridoViewModel>(this.url, inserirContatoVm)
+    .pipe(map(this.processarDados), catchError(this.processarFalha));
+  }
+
   public selecionarTodos(): Observable<ListarContatoViewModel[]> {
     return this.http
-    .get<ListarContatoViewModel[]>(this.url, this.obterHeadersAutorizacao())
+    .get<ListarContatoViewModel[]>(this.url)
     .pipe(map(this.processarDados), catchError(this.processarFalha));
   }
 
