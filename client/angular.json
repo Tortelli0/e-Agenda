@@ -161,9 +161,6 @@
     }
   },
   "cli": {
-    "schematicCollections": [
-      "@cypress/schematic",
-      "@schematics/angular"
-    ]
+    "schematicCollections": ["@schematics/angular", "@cypress/schematic"]
   }
 }
