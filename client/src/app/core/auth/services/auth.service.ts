@@ -24,7 +24,7 @@ export class AuthService {
 
     return this.http.post<TokenViewModel>(urlCompleto, loginUsuario)
     .pipe(map(this.processarDados), catchError(this.processarFalha));
-  }
+    }
 
   public logout() {
     const urlCompleto = `${this.apiUrl}/contas/sair`;

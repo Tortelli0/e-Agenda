@@ -7,7 +7,7 @@
       <form [formGroup]="form" (submit)="entrar()">
         <mat-form-field class="w-100 mt-5" appearance="fill">
           <mat-label>Nome de Usuário</mat-label>
-          <input formControlName="login" matInput autocomplete="username" placeholder="Ex: JoaoSilva12" [maxlength]="30"/>
+          <input matInput data-cy="login" formControlName="login" matInput autocomplete="username" placeholder="Ex: JoaoSilva12" [maxlength]="30"/>
           <mat-icon matSuffix color="primary">login</mat-icon>
 
           <mat-error class="text-white" *ngIf="login?.invalid">
@@ -28,7 +28,7 @@
 
         <mat-form-field class="w-100 mt-3" appearance="fill">
           <mat-label>Senha</mat-label>
-          <input formControlName="senha" matInput type="password" autocomplete="current-password" placeholder="A senha precisa conter ao menos 6 caracteres"/>
+          <input matInput data-cy="senha" formControlName="senha" matInput type="password" autocomplete="current-password" placeholder="A senha precisa conter ao menos 6 caracteres"/>
           <mat-icon matSuffix color="primary">password</mat-icon>
 
           <mat-error class="text-white" *ngIf="senha?.invalid">
@@ -48,7 +48,7 @@
         </mat-form-field>
 
         <div class="row justify-content-end g-2 gap-2 mt-5">
-          <button type="submit" mat-flat-button class="col-sm-4">
+          <button type="submit" data-cy="submit" mat-flat-button class="col-sm-4">
           <mat-icon matIconPrefix>login</mat-icon>
           Login
           </button>
