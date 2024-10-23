@@ -11,7 +11,7 @@ export class AuthService {
 
   private apiUrl: string = environment.apiUrl;
 
-  constructor(private http: HttpClient, private notificacaoService: NotificacaoService) {}
+  constructor(private http: HttpClient) {}
 
   public registrar(registro: RegistrarUsuarioViewModel): Observable<TokenViewModel> {
     const urlCompleto = `${this.apiUrl}/contas/registrar`;

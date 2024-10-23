@@ -29,12 +29,9 @@ import { ListarContatoViewModel } from '../models/contato.model';
 export class ListagemContatosComponent implements OnInit{
   contatos: ListarContatoViewModel[] = [];
 
-  constructor(private route: ActivatedRoute) {
-
-  }
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.contatos = this.route.snapshot.data['contatos'];
-
   }
 }

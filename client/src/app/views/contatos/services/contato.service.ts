@@ -1,9 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { catchError, delay, map, Observable, throwError } from 'rxjs';
-import { ContatoInseridoViewModel, InserirContatoViewModel, ListarContatoViewModel } from '../models/contato.model';
-import { LocalStorageService } from '../../../core/auth/services/local-storage.service';
 import { environment } from '../../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { LocalStorageService } from '../../../core/auth/services/local-storage.service';
+import { catchError, map, Observable, throwError } from 'rxjs';
+import {
+  ContatoEditadoViewModel,
+  ContatoExcluidoViewModel,
+  ContatoInseridoViewModel,
+  EditarContatoViewModel,
+  InserirContatoViewModel,
+  ListarContatoViewModel,
+  VisualizarContatoViewModel
+} from '../models/contato.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,16 +21,41 @@ export class ContatoService {
 
   private readonly url = `${environment.apiUrl}/contatos`;
 
-  constructor(private http: HttpClient, private localStorageService: LocalStorageService ) { }
+  constructor(private http: HttpClient, private localStorageService: LocalStorageService ) {}
 
-  inserir(inserirContatoVm: InserirContatoViewModel): Observable<ContatoInseridoViewModel> {
-    return this.http.post<ContatoInseridoViewModel>(this.url, inserirContatoVm)
+  public inserir(inserirContatoVm: InserirContatoViewModel): Observable<ContatoInseridoViewModel> {
+    return this.http
+    .post<ContatoInseridoViewModel>(this.url, inserirContatoVm)
+    .pipe(map(this.processarDados), catchError(this.processarFalha));
+  }
+
+  public editar(id: string, editarContatoVm: EditarContatoViewModel): Observable<ContatoEditadoViewModel> {
+    const urlCompleto = `${this.url}/${id}`
+
+    return this.http
+    .put<ContatoEditadoViewModel>(urlCompleto, editarContatoVm)
+    .pipe(map(this.processarDados), catchError(this.processarFalha));
+  }
+
+  public excluir(id: string): Observable<ContatoExcluidoViewModel> {
+    const urlCompleto = `${this.url}/${id}`
+
+    return this.http
+    .delete<ContatoExcluidoViewModel[]>(urlCompleto)
     .pipe(map(this.processarDados), catchError(this.processarFalha));
   }
 
   public selecionarTodos(): Observable<ListarContatoViewModel[]> {
     return this.http
     .get<ListarContatoViewModel[]>(this.url)
+    .pipe(map(this.processarDados), catchError(this.processarFalha));
+  }
+
+  selecionarPorId(id: string): Observable<VisualizarContatoViewModel> {
+    const urlCompleto = `${this.url}/visualizcao-completa/${id}`
+
+    return this.http
+    .get<VisualizarContatoViewModel[]>(urlCompleto)
     .pipe(map(this.processarDados), catchError(this.processarFalha));
   }
 
@@ -34,16 +67,5 @@ export class ContatoService {
 
   private processarFalha(resposta: any) {
     return throwError(() => new Error(resposta.error.erros[0]));
-  }
-
-  private obterHeadersAutorizacao() {
-    const chave = this.localStorageService.obterTokenAutenticacao()?.chave;
-
-    return {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${chave}`,
-      }
-    };
   }
 }

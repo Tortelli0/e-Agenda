@@ -7,10 +7,7 @@ import { LocalStorageService } from "./local-storage.service";
 
 export class AuthInterceptor implements HttpInterceptor{
 
-  constructor(private localStorageService: LocalStorageService) {
-
-  }
-
+  constructor(private localStorageService: LocalStorageService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const chave = this.localStorageService.obterTokenAutenticacao()?.chave;
@@ -20,7 +17,7 @@ export class AuthInterceptor implements HttpInterceptor{
         headers: req.headers.set('Authorization', `Bearer ${chave}`)
       })
 
-      return next.handle(requisicaoClonada);                                                                                                     
+      return next.handle(requisicaoClonada);
     }
 
     return next.handle(req);
