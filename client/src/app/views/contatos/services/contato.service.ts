@@ -52,7 +52,7 @@ export class ContatoService {
   }
 
   selecionarPorId(id: string): Observable<VisualizarContatoViewModel> {
-    const urlCompleto = `${this.url}/visualizcao-completa/${id}`
+    const urlCompleto = `${this.url}/visualizacao-completa/${id}`
 
     return this.http
     .get<VisualizarContatoViewModel[]>(urlCompleto)
