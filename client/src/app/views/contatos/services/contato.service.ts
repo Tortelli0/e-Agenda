@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, map, Observable, throwError } from 'rxjs';
+import { catchError, delay, map, Observable, throwError } from 'rxjs';
 import { ListarContatoViewModel } from '../models/contato.model';
 import { LocalStorageService } from '../../../core/auth/services/local-storage.service';
 import { environment } from '../../../../environments/environment';
