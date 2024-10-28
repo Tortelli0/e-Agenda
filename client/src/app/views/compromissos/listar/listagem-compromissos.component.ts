@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForOf, NgIf, AsyncPipe } from '@angular/common';
+import { ListarCompromissoViewModel } from '../models/compromisso.model';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { NgForOf, NgIf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { ListarContatoViewModel } from '../models/contato.model';
 
 @Component({
-  selector: 'app-listagem-contatos',
+  selector: 'app-listagem-compromissos',
   standalone: true,
   imports: [
     NgForOf,
@@ -21,15 +21,15 @@ import { ListarContatoViewModel } from '../models/contato.model';
     MatTooltipModule,
     MatDividerModule,
   ],
-  templateUrl: './listagem-contatos.component.html'
+  templateUrl: './listagem-compromissos.component.html',
 })
 
-export class ListagemContatosComponent implements OnInit{
-  contatos: ListarContatoViewModel[] = [];
+export class ListagemCompromissosComponent implements OnInit{
+  compromissos: ListarCompromissoViewModel[] = [];
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.contatos = this.route.snapshot.data['contatos'];
+    this.compromissos = this.route.snapshot.data['compromissos'];
   }
 }
