@@ -27,7 +27,7 @@
             <mat-label>Tipo de Local</mat-label>
             <mat-select data-cy="tipoLocal" formControlName="tipoLocal" placeholder="Selecione o tipo de local">
 
-              <mat-option *ngFor="let opcao of opcoesLocal; index as i" [value]="i">
+              <mat-option *ngFor="let opcao of opcoesLocal; index as i" [value]="i" [attr.data-cy-select-option]="i">
                 {{ opcao }}
               </mat-option>
             </mat-select>
@@ -85,7 +85,7 @@
           <mat-form-field class="w-100 mt-3" appearance="fill">
             <mat-label>Contato</mat-label>
             <mat-select data-cy="contatoId" formControlName="contatoId">
-              <mat-option *ngFor="let contato of contatos" [value]="contato.id">
+              <mat-option *ngFor="let contato of contatos; index as i" [value]="contato.id" [attr.data-cy-select-option]="i">
                 {{ contato.nome }}
               </mat-option>
             </mat-select>
