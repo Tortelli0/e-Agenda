@@ -23,17 +23,17 @@ export class CompromissoService {
 
   constructor(private http: HttpClient) { }
 
-  public inserir(inserirContatoVm: InserirCompromissoViewModel): Observable<CompromissoInseridoViewModel> {
+  public inserir(inserirCompromissoVm: InserirCompromissoViewModel): Observable<CompromissoInseridoViewModel> {
     return this.http
-    .post<CompromissoInseridoViewModel>(this.url, inserirContatoVm)
+    .post<CompromissoInseridoViewModel>(this.url, inserirCompromissoVm)
     .pipe(map(this.processarDados), catchError(this.processarFalha));
   }
 
-  public editar(id: string, editarContatoVm: EditarComprossimoViewModel): Observable<CompromissoEditadoViewModel> {
+  public editar(id: string, editarCompromissoVm: EditarComprossimoViewModel): Observable<CompromissoEditadoViewModel> {
     const urlCompleto = `${this.url}/${id}`
 
     return this.http
-    .put<CompromissoEditadoViewModel>(urlCompleto, editarContatoVm)
+    .put<CompromissoEditadoViewModel>(urlCompleto, editarCompromissoVm)
     .pipe(map(this.processarDados), catchError(this.processarFalha));
   }
 
