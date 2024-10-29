@@ -26,5 +26,5 @@ export const compromissosRoutes: Routes = [
 
   { path: 'editar/:id', component: EdicaoCompromissoComponent, resolve: { contatos: listagemContatosResolver, compromisso: visualizarCompromissoResolver, }, },
 
-  { path: 'excluir/:id', component: ExclusaoCompromissoComponent, resolve: {compromisso: visualizarCompromissoResolver, }, },
+  { path: 'excluir/:id', component: ExclusaoCompromissoComponent, resolve: { compromisso: visualizarCompromissoResolver, }, },
 ];
