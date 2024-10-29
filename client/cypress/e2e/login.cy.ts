@@ -5,7 +5,7 @@ describe('Processo de Login do Usuário', () => {
   });
 
   it('Deve redirecionar para login', () => {
-    cy.contains('Login de Usuário'); // asert
+    cy.contains('Login de Usuário'); // assert
   });
 
   it('Deve autenticar usuário corretamente e redirecionar', () => {

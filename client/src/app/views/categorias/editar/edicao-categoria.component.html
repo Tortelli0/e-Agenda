@@ -9,7 +9,7 @@
 
         <mat-form-field class="w-100 mt-5" appearance="fill">
           <mat-label>Título</mat-label>
-          <input matInput formControlName="titulo" autocomplete="off" placeholder="Ex: Carros"/>
+          <input matInput data-cy="titulo" formControlName="titulo" autocomplete="off" placeholder="Ex: Carros"/>
           <mat-icon matSuffix color="primary">category_search</mat-icon>
 
           <mat-error class="text-white" *ngIf="titulo?.invalid">
@@ -28,7 +28,7 @@
         </mat-form-field>
 
         <div class="row justify-content-end g-2 gap-2 mt-3">
-          <button type="submit" mat-flat-button class="col-sm-4">
+          <button data-cy="submit" type="submit" mat-flat-button class="col-sm-4">
           <mat-icon matIconPrefix>check</mat-icon>
           Gravar
           </button>

@@ -9,7 +9,7 @@
 
         <mat-form-field class="w-100 mt-5" appearance="fill">
           <mat-label>Nome</mat-label>
-          <input matInput formControlName="nome" autocomplete="name" placeholder="Ex: João da Silva" [maxLength]="30"/>
+          <input matInput data-cy="nome" formControlName="nome" autocomplete="name" placeholder="Ex: João da Silva" [maxLength]="30"/>
           <mat-icon matSuffix color="primary">person</mat-icon>
 
           <mat-error class="text-white" *ngIf="nome?.invalid">
@@ -25,7 +25,7 @@
 
         <mat-form-field class="w-100 mt-3" appearance="fill">
           <mat-label>Email</mat-label>
-          <input matInput formControlName="email" type="email" autocomplete="email" placeholder="Ex: joaosilva@gmail.com"/>
+          <input matInput data-cy="email" formControlName="email" type="email" autocomplete="email" placeholder="Ex: joaosilva@gmail.com"/>
           <mat-icon matSuffix color="primary">mail</mat-icon>
 
           <mat-error class="text-white" *ngIf="email?.invalid">
@@ -41,7 +41,7 @@
 
         <mat-form-field class="w-100 mt-3" appearance="fill">
           <mat-label>Telefone</mat-label>
-          <input matInput formControlName="telefone" autocomplete="tel-national" placeholder="Ex: (00) 90000-0000"/>
+          <input matInput data-cy="telefone" formControlName="telefone" autocomplete="tel-national" placeholder="Ex: (00) 90000-0000"/>
           <mat-icon matSuffix color="primary">phone</mat-icon>
 
           <mat-error class="text-white" *ngIf="telefone?.invalid">
@@ -57,7 +57,7 @@
 
         <mat-form-field class="w-100 mt-3" appearance="fill">
           <mat-label>Empresa</mat-label>
-          <input matInput formControlName="empresa" autocomplete="organization" placeholder="Ex: Academia do Programador" [maxLength]="30"/>
+          <input matInput data-cy="empresa" formControlName="empresa" autocomplete="organization" placeholder="Ex: Academia do Programador" [maxLength]="30"/>
           <mat-icon matSuffix color="primary">corporate_fare</mat-icon>
 
           <mat-error class="text-white" *ngIf="empresa?.invalid">
@@ -73,7 +73,7 @@
 
         <mat-form-field class="w-100 mt-3" appearance="fill">
           <mat-label>Cargo</mat-label>
-          <input matInput formControlName="cargo" autocomplete="organization-title" placeholder="Ex: Professor"[maxLength]="30"/>
+          <input matInput data-cy="cargo" formControlName="cargo" autocomplete="organization-title" placeholder="Ex: Professor"[maxLength]="30"/>
           <mat-icon matSuffix color="primary">work</mat-icon>
 
           <mat-error class="text-white" *ngIf="cargo?.invalid">
@@ -88,7 +88,7 @@
         </mat-form-field>
 
         <div class="row justify-content-end g-2 gap-2 mt-3">
-          <button type="submit" mat-flat-button class="col-sm-4">
+          <button data-cy="submit" type="submit" mat-flat-button class="col-sm-4">
           <mat-icon matIconPrefix>check</mat-icon>
           Gravar
           </button>
