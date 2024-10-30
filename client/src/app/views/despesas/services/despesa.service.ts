@@ -18,7 +18,7 @@ import {
 
 export class DespesaService {
 
-  private readonly url = `${environment.apiUrl}/categorias`;
+  private readonly url = `${environment.apiUrl}/despesas`;
 
   constructor(private http: HttpClient) { }
 

@@ -49,7 +49,7 @@
           <mat-icon matSuffix color="primary">calendar_today</mat-icon>
 
           <mat-error class="text-white" *ngIf="data?.invalid">
-            <span *ngIf="descricao?.errors?.['required']">
+            <span *ngIf="data?.errors?.['required']">
               A data precisa ser preenchida.
             </span>
           </mat-error>
