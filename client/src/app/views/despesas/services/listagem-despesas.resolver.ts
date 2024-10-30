@@ -3,6 +3,6 @@ import { ListarDespesaViewModel } from "../models/despesa.model";
 import { DespesaService } from "./despesa.service";
 import { inject } from "@angular/core";
 
-export const listarDespesasResolver: ResolveFn<ListarDespesaViewModel[]> = () => {
+export const listagemDespesasResolver: ResolveFn<ListarDespesaViewModel[]> = () => {
   return inject(DespesaService).selecionarTodos();
 };
