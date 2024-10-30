@@ -72,6 +72,11 @@ export class ShellComponent {
       icone: 'category',
       rota: '/categorias',
     },
+    {
+      titulo: 'Despesas',
+      icone: 'currency_exchange',
+      rota: '/despesas',
+    },
   ];
 
   isHandset$: Observable<boolean>;
