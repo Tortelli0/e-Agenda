@@ -22,7 +22,6 @@ describe('Processo de crud de Categorias', () => {
   it('Deve Cadastrar uma Categoria', () => {
     cy.visit('/categorias/listar');
 
-
     cy.get('[data-cy=cadastrar]').click();
 
     cy.get('[data-cy=titulo]').type('testeTitulo');

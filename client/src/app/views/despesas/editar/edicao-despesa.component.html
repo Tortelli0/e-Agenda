@@ -31,7 +31,7 @@
           <mat-label>Valor</mat-label>
           <input matInput type="number" [min]="0.0" data-cy="valor" formControlName="valor" autocomplete="off" placeholder="Ex: 100.00"/>
           <mat-icon matSuffix color="primary">attach_money</mat-icon>
-          
+
           <mat-error class="text-white" *ngIf="valor?.invalid">
             <span *ngIf="valor?.errors?.['required']">
               O valor precisa ser preenchido.
@@ -79,7 +79,7 @@
         </mat-form-field>
 
         <div class="row justify-content-end g-2 gap-2 mt-3">
-          <button type="submit" mat-flat-button class="col-sm-4" color="primary">
+          <button data-cy="submit" type="submit" mat-flat-button class="col-sm-4" color="primary">
             <mat-icon>check</mat-icon>
             Gravar
           </button>

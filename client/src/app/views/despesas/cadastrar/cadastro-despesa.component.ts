@@ -47,7 +47,7 @@ export class CadastroDespesaComponent implements OnInit {
     this.form = this.fb.group({
       descricao: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
       valor: [0.0, [Validators.required, Validators.min(1)]],
-      data: [[new Date().toISOString().substring(0, 10), Validators.required]],
+      data: [new Date().toISOString().substring(0, 10), [Validators.required]],
       formaPagamento: [0, [Validators.required]],
       categoriasSelecionadas: [[], [Validators.required]]
     });

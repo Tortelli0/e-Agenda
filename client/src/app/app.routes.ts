@@ -9,6 +9,7 @@ import { contatosRoutes } from './views/contatos/contatos.routes';
 import { compromissosRoutes } from './views/compromissos/compromissos.routes';
 import { categoriasRoutes } from './views/categorias/categorias.routes';
 import { despesasRoutes } from './views/despesas/despesas.routes';
+import { tarefasRoutes } from './views/tarefas/tarefas.routes';
 
 const authGuard: CanMatchFn = (): Observable<boolean | UrlTree> => {
   const router = inject(Router);
@@ -44,4 +45,5 @@ export const routes: Routes = [
   { path: 'compromissos', children: compromissosRoutes, canMatch: [authGuard] },
   { path: 'categorias', children: categoriasRoutes, canMatch: [authGuard] },
   { path: 'despesas', children: despesasRoutes, canMatch: [authGuard] },
+  { path: 'tarefas', children: tarefasRoutes, canMatch: [authGuard] },
 ];
